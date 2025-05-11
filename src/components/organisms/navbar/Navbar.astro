@@ -1,0 +1,14 @@
+---
+import LinkGroup from '@/components/molecules/link-group/LinkGroup.astro';
+import Logo from '@/components/atoms/logo/Logo.astro';
+import SocialGroup from '@/components/molecules/social-group/SocialGroup.astro';
+const links = [
+    { href: '/', text: 'Home' },
+    { href: '/about', text: 'About' },
+]
+---
+
+<nav class="flex flex-row justify-between items-center bg-red-500" >
+    <Logo />
+    <LinkGroup links={links} />
+</nav>

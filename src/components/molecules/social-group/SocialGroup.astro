@@ -1,0 +1,19 @@
+---
+import Social from '@/components/atoms/social/Social.astro';
+
+interface Props {
+    id: string;
+    links: {
+        href: string;
+        text: string;
+    }[];
+}
+
+const props: Props = Astro.props;
+---
+
+<div class="social-group">
+    {props.links.map((link) => (
+        <Social id={link.text} />
+    ))}
+</div>

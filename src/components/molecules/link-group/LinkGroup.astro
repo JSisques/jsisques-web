@@ -1,0 +1,18 @@
+---
+import Link from '@/components/atoms/link/Link.astro';
+
+interface Props {
+    links: {
+        href: string;
+        text: string;
+    }[];
+}
+
+const props: Props = Astro.props;
+---
+
+<div id="link-group" class="flex flex-row gap-4 bg-red-500">
+    {props.links.map((link) => (
+        <Link id={`link-${link.text}`} href={link.href}>{link.text}</Link>
+    ))}
+</div>
