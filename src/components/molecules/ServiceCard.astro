@@ -1,0 +1,20 @@
+---
+import Heading from '@/components/atoms/Heading.astro';
+import Paragraph from '@/components/atoms/Paragraph.astro';
+import Image from '@/components/atoms/Image.astro';
+/**
+ * Molecule: ServiceCard
+ * Props:
+ *  - title: string
+ *  - description: string
+ *  - imageSrc: string
+ *  - imageAlt: string
+ */
+const { title, description, imageSrc, imageAlt } = Astro.props;
+---
+
+<div class="service-card">
+  <Image src={imageSrc} alt={imageAlt} width={64} height={64} />
+  <Heading level={3}>{title}</Heading>
+  <Paragraph>{description}</Paragraph>
+</div> 

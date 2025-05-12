@@ -1,0 +1,12 @@
+---
+/**
+ * Atom: Heading
+ * Props:
+ *  - level: number (1-6)
+ *  - children: string | HTML
+ */
+const { level = 1, children } = Astro.props;
+const Tag = `h${level}`;
+---
+
+<Tag>{children}</Tag> 

@@ -1,0 +1,18 @@
+---
+// ParticleBackground.astro
+// Props: numCircles (número de partículas), width, height, color
+const { numCircles = 15, width = 1440, height = 100, color = '#22d3ee', className = '' } = Astro.props;
+
+const circles = [];
+for (let i = 0; i < numCircles; i++) {
+  const x = Math.floor(Math.random() * width);
+  const y = Math.floor(Math.random() * height);
+  const r = (Math.random() * 2) + 1;
+  circles.push(`<circle cx="${x}" cy="${y}" r="${r}" fill="${color}" />`);
+}
+---
+<div class={className} style={`position:absolute;inset:0;pointer-events:none;opacity:0.3;`}>
+  <svg width="100%" height={height} viewBox={`0 0 ${width} ${height}`} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g set:html={circles.join('')} />
+  </svg>
+</div> 
