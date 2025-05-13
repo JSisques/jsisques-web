@@ -92,15 +92,30 @@ const typingProps = {
 		<nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md shadow-lg border-b border-green-400/30">
 			<div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
 				<span class="font-extrabold text-xl text-green-400">JSisques</span>
-				<ul class="flex gap-6 font-semibold text-gray-200">
+				<!-- Desktop Navbar -->
+				<ul class="hidden md:flex gap-6 font-semibold text-gray-200">
 					<li><a href="#" class="hover:text-green-400 transition">Home</a></li>
 					<li><a href="#services" class="hover:text-cyan-400 transition">Services</a></li>
 					<li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
 					<li><a href="#projects" class="hover:text-green-400 transition">Projects</a></li>
 					<li><a href="#contact" class="hover:text-green-400 transition">Contact</a></li>
 				</ul>
+				<!-- Mobile Hamburger -->
+				<button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-green-400 group" aria-label="Open menu">
+					<span class="block w-7 h-1 bg-green-400 mb-1 rounded transition-all duration-300 group-[.open]:rotate-45 group-[.open]:translate-y-2"></span>
+					<span class="block w-7 h-1 bg-green-400 mb-1 rounded transition-all duration-300 group-[.open]:opacity-0"></span>
+					<span class="block w-7 h-1 bg-green-400 rounded transition-all duration-300 group-[.open]:-rotate-45 group-[.open]:-translate-y-2"></span>
+				</button>
 			</div>
 		</nav>
+		<!-- Mobile Dropdown -->
+		<div id="mobile-menu" class="md:hidden fixed top-16 left-0 w-full bg-gray-900/95 shadow-lg border-b border-green-400/30 z-40 flex-col items-center gap-4 py-6 text-lg font-semibold text-gray-200 hidden transition-all duration-300">
+			<a href="#" class="block px-6 py-2 hover:text-green-400 transition">Home</a>
+			<a href="#services" class="block px-6 py-2 hover:text-cyan-400 transition">Services</a>
+			<a href="#skills" class="block px-6 py-2 hover:text-cyan-400 transition">Skills</a>
+			<a href="#projects" class="block px-6 py-2 hover:text-green-400 transition">Projects</a>
+			<a href="#contact" class="block px-6 py-2 hover:text-green-400 transition">Contact</a>
+		</div>
 		<div class="pt-20"></div>
 		{/* Hero Section */}
 		<section class="flex flex-col items-center justify-center min-h-screen text-center px-4 relative overflow-hidden">
@@ -145,28 +160,28 @@ const typingProps = {
 			<p class="text-center text-gray-300 mb-12 max-w-2xl">Unlock your business potential with a comprehensive suite of freelance services. From building robust web applications to automating your daily operations, I deliver tailored solutions that drive growth, efficiency, and innovation.</p>
 			<div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
 				{/* Web Development */}
-				<div class="group bg-gray-800 rounded-2xl p-8 flex flex-col items-center md:items-start shadow-xl border-2 border-green-400/40 hover:border-green-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-400/30 relative overflow-hidden w-full min-h-[220px]">
+				<div class="group bg-gray-800 rounded-2xl p-8 flex flex-col items-start shadow-xl border-2 border-green-400/40 hover:border-green-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-400/30 relative overflow-hidden w-full min-h-[220px]">
 					<span class="text-5xl mb-4 text-green-400 drop-shadow-lg">🌐</span>
-					<h3 class="font-bold text-2xl mb-2 text-green-400 tracking-tight text-center md:text-left">Web Development</h3>
-					<p class="text-gray-200 text-base text-center md:text-left">I create high-performance websites, landing pages, e-commerce platforms, and web applications that are visually stunning, user-friendly, and optimized for results. Every project is custom-built to fit your unique goals and brand identity.</p>
+					<h3 class="font-bold text-2xl mb-2 text-green-400 tracking-tight ">Web Development</h3>
+					<p class="text-gray-200 text-base ">I create high-performance websites, landing pages, e-commerce platforms, and web applications that are visually stunning, user-friendly, and optimized for results. Every project is custom-built to fit your unique goals and brand identity.</p>
 				</div>
 				{/* Process Automation */}
-				<div class="group bg-gray-800 rounded-2xl p-8 flex flex-col items-center md:items-start shadow-xl border-2 border-cyan-400/40 hover:border-cyan-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-400/30 relative overflow-hidden w-full min-h-[220px]">
+				<div class="group bg-gray-800 rounded-2xl p-8 flex flex-col items-start shadow-xl border-2 border-cyan-400/40 hover:border-cyan-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-400/30 relative overflow-hidden w-full min-h-[220px]">
 					<span class="text-5xl mb-4 text-cyan-400 drop-shadow-lg">🤖</span>
-					<h3 class="font-bold text-2xl mb-2 text-cyan-400 tracking-tight text-center md:text-left">Process Automation</h3>
-					<p class="text-gray-200 text-base text-center md:text-left">Streamline your business with intelligent automation. I design and implement solutions that eliminate repetitive tasks, reduce human error, and free up your team to focus on what matters most—growing your business.</p>
+					<h3 class="font-bold text-2xl mb-2 text-cyan-400 tracking-tight ">Process Automation</h3>
+					<p class="text-gray-200 text-base">Streamline your business with intelligent automation. I design and implement solutions that eliminate repetitive tasks, reduce human error, and free up your team to focus on what matters most—growing your business.</p>
 				</div>
 				{/* AI Integrations */}
-				<div class="group bg-gray-800 rounded-2xl p-8 flex flex-col items-center md:items-start shadow-xl border-2 border-green-400/40 hover:border-green-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-400/30 relative overflow-hidden w-full min-h-[220px]">
+				<div class="group bg-gray-800 rounded-2xl p-8 flex flex-col items-start shadow-xl border-2 border-green-400/40 hover:border-green-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-400/30 relative overflow-hidden w-full min-h-[220px]">
 					<span class="text-5xl mb-4 text-green-400 drop-shadow-lg">🧠</span>
-					<h3 class="font-bold text-2xl mb-2 text-green-400 tracking-tight text-center md:text-left">AI Integrations</h3>
-					<p class="text-gray-200 text-base text-center md:text-left">Supercharge your products and workflows with the latest AI technologies. I integrate advanced AI tools and APIs to automate decision-making, personalize user experiences, and unlock new business opportunities.</p>
+					<h3 class="font-bold text-2xl mb-2 text-green-400 tracking-tight ">AI Integrations</h3>
+					<p class="text-gray-200 text-base ">Supercharge your products and workflows with the latest AI technologies. I integrate advanced AI tools and APIs to automate decision-making, personalize user experiences, and unlock new business opportunities.</p>
 				</div>
 				{/* Custom Solutions */}
-				<div class="group bg-gray-800 rounded-2xl p-8 flex flex-col items-center md:items-start shadow-xl border-2 border-cyan-400/40 hover:border-cyan-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-400/30 relative overflow-hidden w-full min-h-[220px]">
+				<div class="group bg-gray-800 rounded-2xl p-8 flex flex-col items-start shadow-xl border-2 border-cyan-400/40 hover:border-cyan-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-400/30 relative overflow-hidden w-full min-h-[220px]">
 					<span class="text-5xl mb-4 text-cyan-400 drop-shadow-lg">🛠️</span>
-					<h3 class="font-bold text-2xl mb-2 text-cyan-400 tracking-tight text-center md:text-left">Custom Solutions</h3>
-					<p class="text-gray-200 text-base text-center md:text-left">Tackle your most complex business challenges with bespoke integrations, dashboards, and digital tools. I deliver creative, scalable solutions that adapt to your evolving needs and give you a competitive edge.</p>
+					<h3 class="font-bold text-2xl mb-2 text-cyan-400 tracking-tight ">Custom Solutions</h3>
+					<p class="text-gray-200 text-base ">Tackle your most complex business challenges with bespoke integrations, dashboards, and digital tools. I deliver creative, scalable solutions that adapt to your evolving needs and give you a competitive edge.</p>
 				</div>
 			</div>
 			<div class="flex justify-center mt-10">
@@ -392,5 +407,30 @@ const typingProps = {
 				</div>
 			</div>
 		</footer>
+		<script>
+		// Navbar mobile menu logic
+		if (typeof window !== 'undefined') {
+			document.addEventListener('DOMContentLoaded', function() {
+				const btn = document.getElementById('mobile-menu-btn');
+				const menu = document.getElementById('mobile-menu');
+				let open = false;
+				if (btn && menu) {
+					btn.addEventListener('click', function() {
+						open = !open;
+						menu.style.display = open ? 'flex' : 'none';
+						btn.classList.toggle('open', open);
+					});
+					// Optional: close menu on link click
+					menu.querySelectorAll('a').forEach(link => {
+						link.addEventListener('click', () => {
+							open = false;
+							menu.style.display = 'none';
+							btn.classList.remove('open');
+						});
+					});
+				}
+			});
+		}
+		</script>
 	</body>
 </html>
