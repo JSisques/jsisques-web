@@ -1,5 +1,18 @@
 ---
 import "../styles/global.css";
+import TypingEffect from "../components/atoms/TypingEffect.jsx";
+
+const typingProps = {
+	texts: [
+		"Transforming ideas into powerful digital solutions for your business",
+		"Boosting your business with cutting-edge technology",
+		"Developing modern and automated web platforms",
+		"Integrating AI and automation for your growth"
+	],
+	typingSpeed: 40,
+	deletingSpeed: 25,
+	pause: 1600
+};
 ---
 
 <html lang="en">
@@ -35,7 +48,9 @@ import "../styles/global.css";
 			<h1 class="text-5xl md:text-6xl font-extrabold mb-6">
 				<span class="text-green-400">Full-Stack</span> <span class="text-cyan-400">Developer</span>
 			</h1>
-			<h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-200">Transforming ideas into powerful digital solutions for your business</h2>
+			<h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-200">
+				<TypingEffect client:load {...typingProps} />
+			</h2>
 			<p class="text-xl text-gray-300 mb-8 max-w-2xl">
 				I partner with businesses and entrepreneurs to design, develop, and automate modern web platforms. My mission is to help you scale, innovate, and stand out online with custom solutions, seamless integrations, and the latest in AI and automation technology.
 			</p>
