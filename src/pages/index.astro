@@ -336,13 +336,49 @@ const typingProps = {
 						Download CV
 					</a> -->
 				</div>
-				<form class="flex flex-col gap-6">
-					<input type="text" placeholder="Your Name" class="px-4 py-3 rounded-lg bg-gray-800 border border-cyan-400/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required />
-					<input type="email" placeholder="Your Email" class="px-4 py-3 rounded-lg bg-gray-800 border border-cyan-400/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required />
-					<input type="text" placeholder="Subject" class="px-4 py-3 rounded-lg bg-gray-800 border border-cyan-400/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required />
-					<textarea placeholder="Your Message" rows="5" class="px-4 py-3 rounded-lg bg-gray-800 border border-cyan-400/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required></textarea>
+				<form class="flex flex-col gap-6" action="https://formspree.io/f/xjkwpvwn" method="POST" id="contact-form">
+					<input type="text" name="name" placeholder="Your Name" class="px-4 py-3 rounded-lg bg-gray-800 border border-cyan-400/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required />
+					<input type="email" name="email" placeholder="Your Email" class="px-4 py-3 rounded-lg bg-gray-800 border border-cyan-400/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required />
+					<input type="text" name="subject" placeholder="Subject" class="px-4 py-3 rounded-lg bg-gray-800 border border-cyan-400/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required />
+					<textarea name="message" placeholder="Your Message" rows="5" class="px-4 py-3 rounded-lg bg-gray-800 border border-cyan-400/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required></textarea>
 					<button type="submit" class="py-3 rounded-full bg-green-500 hover:bg-cyan-400 text-white font-bold text-lg shadow-lg transition">Send Message</button>
+					<!-- Feedback message -->
+					<div id="form-status" class="text-center text-green-400 font-semibold mt-2" style="display:none;"></div>
 				</form>
+				<script>
+				// Replace 'your-form-id' with your real Formspree endpoint after registering
+				document.addEventListener('DOMContentLoaded', function() {
+					const form = document.getElementById('contact-form') as HTMLFormElement | null;
+					const status = document.getElementById('form-status');
+					if (!form || !status) return;
+					form.addEventListener('submit', async function(e) {
+						e.preventDefault();
+						const data = new FormData(form!);
+						const action = form!.getAttribute('action');
+						try {
+							const res = await fetch(action!, {
+								method: 'POST',
+								body: data,
+								headers: { 'Accept': 'application/json' }
+							});
+							if (res.ok) {
+								status!.textContent = 'Message sent successfully!';
+								status!.style.display = 'block';
+								status!.style.color = '#4ade80';
+								form!.reset();
+							} else {
+								status!.textContent = 'There was an error sending your message.';
+								status!.style.display = 'block';
+								status!.style.color = '#f87171';
+							}
+						} catch {
+							status!.textContent = 'There was an error sending your message.';
+							status!.style.display = 'block';
+							status!.style.color = '#f87171';
+						}
+					});
+				});
+				</script>
 				</div>
 			</section>
 
