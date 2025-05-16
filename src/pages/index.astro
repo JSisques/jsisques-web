@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import TypingEffect from "../components/atoms/TypingEffect.jsx";
+import TrackPageView from "../components/atoms/TrackPageView.jsx";
+import InitMixpanel from "../components/atoms/InitMixpanel.jsx";
 
 const typingProps = {
 	texts: [
@@ -99,6 +101,8 @@ const typingProps = {
 		</style>
 	</head>
 	<body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-gray-100 min-h-screen">
+		<InitMixpanel client:load />
+		<TrackPageView client:load />
 		{/* Navbar */}
 		<nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md shadow-lg border-b border-green-400/30">
 			<div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
